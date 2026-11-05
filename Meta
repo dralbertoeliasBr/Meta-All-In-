@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+# backup_antifragil.py - SOYNAVY - Nunca mais perca nada no Pythonista
+import os, shutil, zipfile, datetime
+from pathlib import Path
+
+home = Path(os.path.expanduser("~")) / "Documents"
+backup_dir = home / "BACKUP_SOYNAVY"
+backup_dir.mkdir(exist_ok=True)
+
+data = datetime.datetime.now().strftime("%Y%m%d_%H%M")
+zip_path = backup_dir / f"metavox_backup_{data}.zip"
+
+with zipfile.ZipFile(zip_path, 'w') as z:
+    for f in home.rglob("*.py"):
+        if "BACKUP" not in str(f):
+            z.write(f, f.relative_to(home))
+    for f in home.rglob("*.json"):
+        if "ledger" in f.name or "borges" in f.name:
+            z.write(f, f.relative_to(home))
+
+print(f"✅ Backup: {zip_path} | {zip_path.stat().st_size/1024:.1f}KB")
+print(f"📁 Salvo em: {backup_dir}")
+print("➡️ Agora abra Files > Pythonista > BACKUP_SOYNAVY > iCloud Drive > arraste")
