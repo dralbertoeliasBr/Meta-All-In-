@@ -1,0 +1,96 @@
+# -*- coding: utf-8 -*-
+# METAVOX MVP v1.0 - DNA-ARQUITETO-2026-SOUNAVY
+# O menor SO de borda do mundo: Luzinha + Voz + SSRD
+# Roda 100% offline no iPhone 16. Se a 【entity-Meta¦canonical_name=Meta】 desligar, a luzinha continua.
+
+import speech, hashlib, time, json, os
+from datetime import datetime
+from pathlib import Path
+
+class Metavox:
+    def __init__(self):
+        self.dna = "DNA-ARQUITETO-2026-SOUNAVY"
+        self.semente = 1.51
+        self.crosp = "45849"
+        self.home = os.path.expanduser("~")
+        self.doca = f"{self.home}/Documents/metavox"
+        Path(self.doca).mkdir(parents=True, exist_ok=True)
+        self.log = f"{self.doca}/ledger.json"
+        if not os.path.exists(self.log):
+            with open(self.log, 'w', encoding='utf-8') as f: json.dump([], f)
+        self.voz = 'pt-BR'
+        self.last_hash = self._carregar_hash()
+        self.falar("Metavox online. Sou sua luzinha.")
+        print("🟢 METAVOX v1.0 | DNA-ARQUITETO-2026-SOUNAVY")
+
+    def luzinha(self, cor, alvo="botão"):
+        mapa = {"azul": "🔵", "vermelho": "🔴", "verde": "🟢", "amarelo": "🟡"}
+        print(f"{mapa.get(cor, '⚪')} LUZINHA: PISCOU EM '{alvo.upper()}'")
+        self.falar(f"Aperte aqui: {alvo}")
+
+    def ouvir_e_processar(self):
+        try:
+            texto_bruto = speech.recognize(self.voz)
+        except:
+            texto_bruto = input("🎤 Digite: ")
+        if not texto_bruto: return
+        limpo = texto_bruto.lower()
+        for r in ["nuknin","shin","né","tipo","ah","sabe"]:
+            limpo = limpo.replace(r,"")
+        limpo = ' '.join(limpo.split()).strip().capitalize()
+        h = hashlib.sha256(limpo.encode('utf-8')).hexdigest()[:12]
+        if h == self.last_hash:
+            self.falar("Já fizemos isso. Economia ativada.")
+            print(f"🔴 [STOP/GO]: Bloqueado {h}")
+            return
+        self.last_hash = h
+        self._salvar_hash(h)
+        self.rotear_intencao(limpo, h)
+
+    def rotear_intencao(self, intencao, h):
+        low = intencao.lower()
+        if any(p in low for p in ["cpf","rg","senha","pix","cartão"]):
+            self.luzinha("vermelho","CAMPO BLOQUEADO")
+            self._log_ledger(intencao,h,"L4_LOSSLESS","BLOQUEADO")
+            self.falar("Dado sensível. Trancado.")
+            return
+        if "onde aperto" in low or "como paga" in low:
+            alvo = "PAGAR BOLETO" if "boleto" in low else "ÁREA PIX" if "pix" in low else "MENU PRINCIPAL"
+            cor = "verde" if "boleto" in low or "pix" in low else "azul"
+            self.luzinha(cor, alvo)
+            self._log_ledger(intencao,h,"L1_INTENCAO","LUZINHA_ATIVADA")
+            return
+        self.luzinha("azul","TELA INICIAL")
+        self._log_ledger(intencao,h,"L1_INTENCAO","OK")
+
+    def _log_ledger(self, intencao, h, nivel, status):
+        log = {"ts": datetime.now().isoformat(), "intencao": intencao, "hash_12b": h, "nivel": nivel, "status": status, "dna": self.dna}
+        try:
+            with open(self.log,"r",encoding='utf-8') as f: dados=json.load(f)
+        except: dados=[]
+        dados.append(log)
+        with open(self.log,"w",encoding='utf-8') as f: json.dump(dados,f,indent=2,ensure_ascii=False)
+        print(f"✅ Ledger: {h} | {status}")
+
+    def _salvar_hash(self,h):
+        with open(f"{self.doca}/last_hash.txt",'w',encoding='utf-8') as f: f.write(h)
+    def _carregar_hash(self):
+        try:
+            with open(f"{self.doca}/last_hash.txt",'r',encoding='utf-8') as f: return f.read().strip()
+        except: return None
+    def falar(self,t):
+        print(f"🗣️ METAVOX: {t}")
+        try: speech.say(t,self.voz,0.5)
+        except: pass
+    def executar(self):
+        while True:
+            try:
+                self.ouvir_e_processar()
+                print("\n"+"="*40+"\n")
+            except KeyboardInterrupt:
+                self.falar("Metavox em pausa. A luzinha nunca apaga.")
+                break
+
+if __name__=="__main__":
+    mvx=Metavox()
+    mvx.executar()
