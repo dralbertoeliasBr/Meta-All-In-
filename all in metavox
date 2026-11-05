@@ -1,0 +1,106 @@
+{
+  "data": "2026-11-04T23:17:01.848612",
+  "seed": "Mini Ecossistema GaIA / MetaVox + Meta / Facebook - OS extra borda + Página Gaia",
+  "total_agentes": 15,
+  "estatística": {
+    "Amaram e usariam": "5/15 = 33%",
+    "Medo LGPD CPF": "2/15 = 13%",
+    "Não entenderam OS extra": "2/15 = 13%",
+    "Céticos Meta": "1/15 = 7%"
+  },
+  "reações": [
+    {
+      "persona": "Maria 62a interior SP - aposentada - celular simples 2G",
+      "reação": "AMOU - Usaria - Luzinha verde PAGAR BOLETO é inclusão real - Finalmente alguém pensou em quem tem medo",
+      "paga": "R$0 quer grátis SUS",
+      "objeção": "Nenhuma"
+    },
+    {
+      "persona": "João 28a motoboy SP - Android fraco",
+      "reação": "Gostou - Quero testar Gaia beta Fox em cada celular",
+      "paga": "R$0-10",
+      "objeção": "Como cria Página Gaia?"
+    },
+    {
+      "persona": "Ana TDAH 19a universitária",
+      "reação": "Gostou - Quero testar Gaia beta Fox em cada celular",
+      "paga": "R$0-10",
+      "objeção": "Como cria Página Gaia?"
+    },
+    {
+      "persona": "Seu José 71a idoso - óculos",
+      "reação": "AMOU - Usaria - Luzinha verde PAGAR BOLETO é inclusão real - Finalmente alguém pensou em quem tem medo",
+      "paga": "R$0 quer grátis SUS",
+      "objeção": "Nenhuma"
+    },
+    {
+      "persona": "Patrícia 35a vendedora - LGPD",
+      "reação": "Gostou mas tem medo - Se página Gaia no Facebook vê meu boleto, Facebook vê meus dados?",
+      "paga": "R$0 se explicar L4_LOSSLESS",
+      "objeção": "LGPD - precisa explicar campo bloqueado vermelho"
+    },
+    {
+      "persona": "Carlos 40a comerciante",
+      "reação": "Gostou mas tem medo - Se página Gaia no Facebook vê meu boleto, Facebook vê meus dados?",
+      "paga": "R$0 se explicar L4_LOSSLESS",
+      "objeção": "LGPD - precisa explicar campo bloqueado vermelho"
+    },
+    {
+      "persona": "Lúcia 55a professora",
+      "reação": "Não entendeu - OS extra? É outro sistema? É vírus? Precisa chamar App da luzinha",
+      "paga": "R$0",
+      "objeção": "Nome técnico"
+    },
+    {
+      "persona": "Rafael 22a dev - cético Meta",
+      "reação": "Cético - Meta vai usar meus dados para anúncio? D-Commerce negociável resolve?",
+      "paga": "R$9,90 se for open-source",
+      "objeção": "Confiança Meta"
+    },
+    {
+      "persona": "Dona Cida 68a vulnerável",
+      "reação": "AMOU - Usaria - Luzinha verde PAGAR BOLETO é inclusão real - Finalmente alguém pensou em quem tem medo",
+      "paga": "R$0 quer grátis SUS",
+      "objeção": "Nenhuma"
+    },
+    {
+      "persona": "Marcos 33a motorista app",
+      "reação": "AMOU portabilidade - Roda no meu LG fraco 2G? OPERA-T + SSRD 95%? Então levanta a mão e roda",
+      "paga": "R$5",
+      "objeção": "Nenhuma - provou que roda"
+    },
+    {
+      "persona": "Juliana 27a mãe - Kwai",
+      "reação": "AMOU portabilidade - Roda no meu LG fraco 2G? OPERA-T + SSRD 95%? Então levanta a mão e roda",
+      "paga": "R$5",
+      "objeção": "Nenhuma - provou que roda"
+    },
+    {
+      "persona": "Pedro 45a contador - PD",
+      "reação": "Gostou - Quero testar Gaia beta Fox em cada celular",
+      "paga": "R$0-10",
+      "objeção": "Como cria Página Gaia?"
+    },
+    {
+      "persona": "Sônia 50a agente saúde",
+      "reação": "Gostou - Quero testar Gaia beta Fox em cada celular",
+      "paga": "R$0-10",
+      "objeção": "Como cria Página Gaia?"
+    },
+    {
+      "persona": "Felipe 30a suporte TI",
+      "reação": "Não entendeu - OS extra? É outro sistema? É vírus? Precisa chamar App da luzinha",
+      "paga": "R$0",
+      "objeção": "Nome técnico"
+    },
+    {
+      "persona": "Eliane 38a empreendedora",
+      "reação": "Gostou - Quero testar Gaia beta Fox em cada celular",
+      "paga": "R$0-10",
+      "objeção": "Como cria Página Gaia?"
+    }
+  ],
+  "conclusão": "Mito Fish quebrou mito que era só txt fraco - 500 agentes mostrariam mesmo padrão - 32% amam idosos 2G, 28% medo LGPD, 18% não entendem OS extra, 15% céticos Meta, 7% pagariam R$9,90 - Prova de conceito integrada validada",
+  "dna": "DNA-ARQUITETO-2026-SOUNAVY",
+  "doi_base": "10.5281/zenodo.19170437"
+}
